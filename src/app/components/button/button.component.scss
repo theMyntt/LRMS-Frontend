@@ -1,0 +1,21 @@
+@use '../../../scss/variables' as *;
+
+button.custom-button {
+  border: 1px solid transparent;
+  padding: 10px 10px;
+  color: #fff;
+  background-color: $black;
+  border-radius: calc(0.5rem - 2px);
+  line-height: 1.25rem;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.1s;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: $gray;
+  }
+}
