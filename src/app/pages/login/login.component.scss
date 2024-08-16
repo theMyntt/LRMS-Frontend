@@ -1,0 +1,14 @@
+.to-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  form {
+    display: inherit;
+    flex-direction: inherit;
+    padding: 20px 0;
+    gap: 20px;
+    width: 400px;
+  }
+}
