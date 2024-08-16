@@ -1,0 +1,12 @@
+@use '../../../scss/variables' as *;
+
+input.custom-input {
+  border: 1px solid $lightgray;
+  padding: 10px 10px;
+  border-radius: calc(0.5rem - 2px);
+  line-height: 1.25rem;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+}
