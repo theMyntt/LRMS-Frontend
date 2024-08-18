@@ -5,7 +5,8 @@ import { LoginComponent } from './pages/login/login.component'
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    title: 'LRMS | Login'
   }
 ]
 
