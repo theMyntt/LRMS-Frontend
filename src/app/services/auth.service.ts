@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable, signal } from '@angular/core'
 import { enviroment } from '../../enviroments/enviroment'
 import { LoginResponse } from '../models/loginResponse.model'
-import { catchError, Subscription } from 'rxjs'
+import { catchError, Subscription, throwError } from 'rxjs'
 import { Router } from '@angular/router'
 
 @Injectable({
@@ -24,15 +24,20 @@ export class AuthService {
         password
       })
       .pipe(
-        catchError(() => {
-          throw new Error('Não foi possivel fazer o login')
-        })
+        catchError(
+          (err: {
+            error: { title: string; message: string; statusCode: number }
+          }) => {
+            return throwError(
+              () => new Error(err.error.message ?? err.error.title)
+            )
+          }
+        )
       )
       .subscribe((response) => {
         this.id.set(response.id)
         this.name.set(response.name)
+        this.router.navigate(['/dashboard'])
       })
-
-    return this.router.navigate(['/login'])
   }
 }

@@ -24,8 +24,8 @@ export class LoginComponent {
 
     try {
       this.authService.login(email, password)
-    } catch (err) {
-      console.log(err)
+    } catch (err: any) {
+      console.log(err.message)
     }
   }
 }
