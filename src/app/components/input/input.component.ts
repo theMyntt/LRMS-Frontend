@@ -25,13 +25,9 @@ export class InputComponent implements ControlValueAccessor {
   private onTouched: () => void = () => {}
   private onChanged: (value: any) => void = () => {}
 
-  @Input()
-  set formControl(value: FormControl) {
-    this.innerValue = value.value
-    value.valueChanges.subscribe((val) => {
-      this.innerValue = val
-      this.onChanged(val)
-    })
+  onInput(event: Event) {
+    const value = (event.target as HTMLInputElement).value
+    this.onChanged(value)
   }
 
   writeValue(value: any): void {

@@ -2,13 +2,10 @@
   <h1>Sign in to you account</h1>
   <p>Or <b>register a new account</b></p>
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
-    <custom-input
-      placeholder="Email"
-      [formControl]="loginForm.controls['email']"
-    ></custom-input>
+    <custom-input placeholder="Email" formControlName="email"></custom-input>
     <custom-input
       placeholder="Password"
-      [formControl]="loginForm.controls['password']"
+      formControlName="password"
       type="password"
     ></custom-input>
     <custom-button type="submit"> Sign in </custom-button>

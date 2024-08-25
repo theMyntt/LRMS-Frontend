@@ -2,5 +2,5 @@
   [type]="type"
   [placeholder]="placeholder"
   class="custom-input"
-  [formControl]="formControl"
+  (input)="onInput($event)"
 />
