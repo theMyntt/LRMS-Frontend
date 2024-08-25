@@ -22,6 +22,10 @@ export class LoginComponent {
     const email: string = this.loginForm.get('email')?.value ?? ''
     const password: string = this.loginForm.get('password')?.value ?? ''
 
-    this.authService.login(email, password).subscribe()
+    try {
+      this.authService.login(email, password)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
